@@ -13,7 +13,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun openStatsActivity(view: View) {}
+    fun openStatsActivity(view: View) {
+        startActivity(Intent(this, StatsActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
 
     fun createPhoneIntent(view: View) {
         val intent = Intent(Intent.ACTION_DIAL)
