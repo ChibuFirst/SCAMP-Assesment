@@ -59,8 +59,8 @@ class StatsActivity : AppCompatActivity() {
 
 class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    val fragmentList: MutableList<Fragment> = ArrayList<Fragment>()
-    val fragmentTitleList: MutableList<String> = ArrayList<String>()
+    private val fragmentList: MutableList<Fragment> = ArrayList<Fragment>()
+    private val fragmentTitleList: MutableList<String> = ArrayList<String>()
 
     override fun getItem(position: Int): Fragment {
         return fragmentList[position]

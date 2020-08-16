@@ -44,6 +44,7 @@
                             android:textColor="@android:color/white" />
 
                         <TextView
+                            android:id="@+id/text_new_confirmed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
@@ -86,6 +87,7 @@
                             android:textColor="@android:color/white" />
 
                         <TextView
+                            android:id="@+id/text_total_confirmed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
@@ -135,6 +137,7 @@
                             android:textColor="@android:color/white" />
 
                         <TextView
+                            android:id="@+id/text_new_deaths"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
@@ -177,6 +180,7 @@
                             android:textColor="@android:color/white" />
 
                         <TextView
+                            android:id="@+id/text_total_deaths"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
@@ -226,6 +230,7 @@
                             android:textColor="@android:color/white" />
 
                         <TextView
+                            android:id="@+id/text_new_recovered"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
@@ -268,6 +273,7 @@
                             android:textColor="@android:color/white" />
 
                         <TextView
+                            android:id="@+id/text_total_recovered"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
