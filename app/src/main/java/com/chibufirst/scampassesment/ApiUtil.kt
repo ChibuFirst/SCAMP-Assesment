@@ -16,14 +16,16 @@ import kotlin.collections.ArrayList
 class ApiUtil private constructor() {
 
     companion object {
-        val BASE_API_URL = "https://api.covid19api.com"
-        val COUNTRY = "Country"
-        val NEW_CONFIRMED = "NewConfirmed"
-        val TOTAL_CONFIRMED = "TotalConfirmed"
-        val NEW_DEATHS = "NewDeaths"
-        val TOTAL_DEATHS = "TotalDeaths"
-        val NEW_RECOVERED = "NewRecovered"
-        val TOTAL_RECOVERED = "TotalRecovered"
+        private const val BASE_API_URL = "https://api.covid19api.com"
+        private const val GLOBAL = "Global"
+        private const val COUNTRIES = "Countries"
+        private const val COUNTRY = "Country"
+        private const val NEW_CONFIRMED = "NewConfirmed"
+        private const val TOTAL_CONFIRMED = "TotalConfirmed"
+        private const val NEW_DEATHS = "NewDeaths"
+        private const val TOTAL_DEATHS = "TotalDeaths"
+        private const val NEW_RECOVERED = "NewRecovered"
+        private const val TOTAL_RECOVERED = "TotalRecovered"
 
         fun buildUrl(title: String): URL {
             lateinit var url: URL
@@ -62,10 +64,10 @@ class ApiUtil private constructor() {
         }
 
         fun getGlobalStatistics(json: String): Statistics {
-            val GLOBAL = "Global"
             lateinit var statistics: Statistics
+            statistics = Statistics("", "", "", "", "", "", "")
             try {
-                val jsonStatistics: JSONObject = JSONObject(json)
+                val jsonStatistics = JSONObject(json)
                 val infoJSON: JSONObject = jsonStatistics.getJSONObject(GLOBAL)
                 statistics = Statistics("",
                     infoJSON.getString(NEW_CONFIRMED),
@@ -82,10 +84,9 @@ class ApiUtil private constructor() {
         }
 
         fun getCountriesStatistics(json: String): ArrayList<Statistics> {
-            val COUNTRIES = "Countries"
-            val stats: ArrayList<Statistics> = ArrayList<Statistics>()
+            val stats: ArrayList<Statistics> = ArrayList()
             try {
-                val statsJSON: JSONObject = JSONObject(json)
+                val statsJSON = JSONObject(json)
                 val arrayJSON: JSONArray = statsJSON.getJSONArray(COUNTRIES)
                 for (i in 0 until arrayJSON.length()) {
                     val element = Statistics(

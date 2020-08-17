@@ -27,21 +27,18 @@ class CountriesRecyclerAdapter(countriesArrayList: ArrayList<Statistics>) :
     class CountriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private var textCountries: TextView = itemView.findViewById(R.id.text_countries)
-        private var textConfirmedNew: TextView = itemView.findViewById(R.id.text_confirmed_new)
-        private var textConfirmedTotal: TextView = itemView.findViewById(R.id.text_confirmed_total)
-        private var textDeathsNew: TextView = itemView.findViewById(R.id.text_deaths_new)
-        private var textDeathsTotal: TextView = itemView.findViewById(R.id.text_deaths_total)
-        private var textRecoveredNew: TextView = itemView.findViewById(R.id.text_recovered_new)
-        private var textRecoveredTotal: TextView = itemView.findViewById(R.id.text_recovered_total)
+        private var textConfirmed: TextView = itemView.findViewById(R.id.text_confirmed)
+        private var textDeaths: TextView = itemView.findViewById(R.id.text_deaths)
+        private var textRecovered: TextView = itemView.findViewById(R.id.text_recovered)
 
         fun bind(statistics: Statistics) {
             textCountries.text = statistics.countries
-            textConfirmedNew.text = "New Confirmed: \n${statistics.new_confirmed}"
-            textConfirmedTotal.text = "Total Confirmed: \n${statistics.total_confirmed}"
-            textDeathsNew.text = "New Deaths: \n${statistics.new_deaths}"
-            textDeathsTotal.text = "Total Deaths: \n${statistics.total_deaths}"
-            textRecoveredNew.text = "New Recovered: \n${statistics.new_recovered}"
-            textRecoveredTotal.text = "Total Recovered: \n${statistics.total_recovered}"
+            val confirmed = "Confirmed: ${statistics.total_confirmed}"
+            textConfirmed.text = confirmed
+            val deaths = "Deaths: ${statistics.total_deaths}"
+            textDeaths.text = deaths
+            val recovered = "Recovered: ${statistics.total_recovered}"
+            textRecovered.text = recovered
         }
     }
 }

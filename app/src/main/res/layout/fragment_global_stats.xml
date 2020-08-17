@@ -15,7 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -40,7 +41,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="top"
-                            android:text="New Confirmed"
+                            android:text="@string/new_confirmed"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -49,10 +50,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:gravity="top"
-                            android:text="107"
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_new_confirmed"
+                            android:layout_marginTop="32dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp" />
 
                     </LinearLayout>
 
@@ -83,7 +90,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="top"
-                            android:text="Total Confirmed"
+                            android:text="@string/total_confirmed"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -92,10 +99,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:gravity="top"
-                            android:text="107"
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_total_confirmed"
+                            android:layout_marginTop="32dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp" />
 
                     </LinearLayout>
 
@@ -108,7 +121,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -133,7 +147,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="top"
-                            android:text="New Deaths"
+                            android:text="@string/new_deaths"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -142,10 +156,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:gravity="top"
-                            android:text="107"
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_new_deaths"
+                            android:layout_marginTop="32dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp" />
 
                     </LinearLayout>
 
@@ -176,7 +196,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="top"
-                            android:text="Total Deaths"
+                            android:text="@string/total_deaths"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -185,10 +205,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:gravity="top"
-                            android:text="107"
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_total_deaths"
+                            android:layout_marginTop="32dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp" />
 
                     </LinearLayout>
 
@@ -201,7 +227,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -226,7 +253,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="top"
-                            android:text="New Recovered"
+                            android:text="@string/new_recovered"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -235,10 +262,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:gravity="top"
-                            android:text="107"
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_new_recovered"
+                            android:layout_marginTop="32dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp" />
 
                     </LinearLayout>
 
@@ -269,7 +302,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="top"
-                            android:text="Total Recovered"
+                            android:text="@string/total_recovered"
                             android:textColor="@android:color/white" />
 
                         <TextView
@@ -278,10 +311,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="32dp"
                             android:gravity="top"
-                            android:text="107"
                             android:textColor="@android:color/white"
                             android:textSize="24sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                        <ProgressBar
+                            android:id="@+id/progress_total_recovered"
+                            android:layout_marginTop="32dp"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp" />
 
                     </LinearLayout>
 

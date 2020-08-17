@@ -1,7 +1,9 @@
 package com.chibufirst.scampassesment
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -54,6 +56,12 @@ class StatsActivity : AppCompatActivity() {
         val dateFormat = SimpleDateFormat.getDateInstance()
         val date = dateFormat.format(calendar.time)
         text_date.text = date
+    }
+
+    fun openMainActivity(view: View) {
+        startActivity(Intent(this, MainActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
 }
 
