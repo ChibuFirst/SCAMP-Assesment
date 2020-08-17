@@ -1,14 +1,25 @@
 package com.chibufirst.scampassesment
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.Network
+import android.net.NetworkRequest
 import android.os.AsyncTask
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.common.ConnectionQuality
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.net.URL
 
@@ -49,15 +60,48 @@ class GlobalStatsFragment : Fragment() {
         textNewRecovered = view.findViewById<TextView>(R.id.text_new_recovered)
         textTotalRecovered = view.findViewById<TextView>(R.id.text_total_recovered)
 
-        try {
-            val statsUrl: URL? = ApiUtil.buildUrl("summary")
-            StatisticsQueryTask().execute(statsUrl)
-        }
-        catch (e: Exception) {
-            e.printStackTrace()
+        val connectivityManager =
+            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val builder: NetworkRequest.Builder = NetworkRequest.Builder()
+            connectivityManager.registerNetworkCallback(
+                builder.build(),
+                object : ConnectivityManager.NetworkCallback() {
+
+                    override fun onAvailable(network: Network) {
+                        lifecycleScope.launch {
+                            connectionAvailable(true)
+                        }
+                    }
+
+                    override fun onLost(network: Network) {
+                        lifecycleScope.launch {
+                            connectionAvailable(false)
+                        }
+                    }
+                }
+            )
         }
 
         return view
+    }
+
+    private suspend fun connectionAvailable (isConnected: Boolean) {
+        withContext(Dispatchers.Main) {
+            if (isConnected) {
+                try {
+                    val statsUrl: URL? = ApiUtil.buildUrl("summary")
+                    StatisticsQueryTask().execute(statsUrl)
+                }
+                catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            else {
+                Toast.makeText(context, "Connection lost", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     class StatisticsQueryTask : AsyncTask<URL, Void, String>() {
