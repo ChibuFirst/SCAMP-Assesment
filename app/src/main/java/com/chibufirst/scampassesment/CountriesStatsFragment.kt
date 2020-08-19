@@ -24,7 +24,7 @@ import java.net.URL
 class CountriesStatsFragment : Fragment() {
 
     companion object {
-        lateinit var countriesRecyclerView: RecyclerView
+        lateinit var recyclerCountries: RecyclerView
         lateinit var progressBar: ProgressBar
     }
 
@@ -34,10 +34,10 @@ class CountriesStatsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_countries_stats, container, false)
 
         progressBar = view.findViewById(R.id.progress_bar)
-        countriesRecyclerView = view.findViewById(R.id.countries_recycler_view)
-        countriesRecyclerView.setHasFixedSize(true)
-        countriesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        countriesRecyclerView.visibility = View.GONE
+        recyclerCountries = view.findViewById(R.id.recycler_countries)
+        recyclerCountries.setHasFixedSize(true)
+        recyclerCountries.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        recyclerCountries.visibility = View.GONE
 
         try {
             val statsURL: URL = ApiUtil.buildUrl("summary")
@@ -85,6 +85,9 @@ class CountriesStatsFragment : Fragment() {
                     e.printStackTrace()
                 }
             }
+            else {
+
+            }
         }
     }
 
@@ -106,14 +109,14 @@ class CountriesStatsFragment : Fragment() {
             val countriesArrayList: ArrayList<Statistics> = ApiUtil.getCountriesStatistics(result)
             if (countriesArrayList.size > 0) {
                 progressBar.visibility = View.GONE
-                countriesRecyclerView.visibility = View.VISIBLE
+                recyclerCountries.visibility = View.VISIBLE
             }
             else {
                 progressBar.visibility = View.VISIBLE
-                countriesRecyclerView.visibility = View.GONE
+                recyclerCountries.visibility = View.GONE
             }
             val adapter = CountriesRecyclerAdapter(countriesArrayList)
-            countriesRecyclerView.adapter = adapter
+            recyclerCountries.adapter = adapter
         }
 
     }

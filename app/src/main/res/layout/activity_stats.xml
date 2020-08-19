@@ -21,14 +21,17 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="16dp">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/image_arrow_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:paddingTop="16dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="16dp"
+                    android:paddingBottom="16dp"
                     android:onClick="openMainActivity"
                     android:src="@drawable/arrow_back" />
 
@@ -36,6 +39,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
+                    android:padding="16dp"
+                    android:onClick="openSearchActivity"
                     android:src="@drawable/search" />
 
             </RelativeLayout>

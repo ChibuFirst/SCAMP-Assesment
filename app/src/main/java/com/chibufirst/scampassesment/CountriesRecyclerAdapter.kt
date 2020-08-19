@@ -41,4 +41,10 @@ class CountriesRecyclerAdapter(countriesArrayList: ArrayList<Statistics>) :
             textRecovered.text = recovered
         }
     }
+
+    fun updateList(newArrayList: ArrayList<Statistics>) {
+        mCountriesArrayList = ArrayList()
+        mCountriesArrayList.addAll(newArrayList)
+        notifyDataSetChanged()
+    }
 }

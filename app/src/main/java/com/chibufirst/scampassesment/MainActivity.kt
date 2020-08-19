@@ -31,4 +31,9 @@ class MainActivity : AppCompatActivity() {
                 ":" + Uri.encode("080097000010"))
         startActivity(messageIntent)
     }
+
+    fun navigateToSearchActivity(view: View) {
+        startActivity(Intent(this, SearchActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+    }
 }

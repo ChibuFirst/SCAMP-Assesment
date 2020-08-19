@@ -9,4 +9,6 @@
     <string name="total_deaths">Total Deaths</string>
     <string name="new_recovered">New Recovered</string>
     <string name="total_recovered">Total Recovered</string>
+    <string name="no_internet">No internet connection.</string>
+    <string name="please_wait">Please wait...</string>
 </resources>
